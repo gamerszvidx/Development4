@@ -2,6 +2,7 @@ package io.github.gamerszvidx.development3;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,24 +10,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.TimerTask;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Handler;
 
 
-public class MainActivity extends Activity {
-    int time = 1000;
-    int score;
-    TextView scoretext;
-    int sps = 30;
+public class MainActivity extends Activity  {
 
+
+Score score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        scoretext = (TextView)findViewById(R.id.Score);
+        score = new Score(this,this);
+
     }
 
     @Override
@@ -54,12 +56,40 @@ public class MainActivity extends Activity {
     }
 
     public void clicked(View view){
-        addscore(1);
+        score.addscore(1);
 
     }
-    public void addscore(int scoretoadd){
-        score+=scoretoadd;
-        scoretext.setText("score: "+score );
+    public void addsps1(View view){
+        if(score.score>=100) {
+            score.subtractscore(100);
+            score.addsps(5);
+        }else{
+            Toast.makeText(this,"not enough score",Toast.LENGTH_SHORT).show();}
 
     }
+    public void addsps2(View view){
+        if(score.score>=200) {
+            score.subtractscore(200);
+            score.addsps(10);
+        }else{
+            Toast.makeText(this,"not enough score",Toast.LENGTH_SHORT).show();}
+
+    }
+    public void addsps3(View view){
+        if(score.score>=300) {
+            score.subtractscore(300);
+            score.addsps(15);
+        }else{
+            Toast.makeText(this,"not enough score",Toast.LENGTH_SHORT).show();}
+
+    }
+    public void addsps4(View view){
+        if(score.score>=500) {
+            score.subtractscore(500);
+            score.addsps(25);
+        }else{
+            Toast.makeText(this,"not enough score",Toast.LENGTH_SHORT).show();}
+
+    }
+
 }
