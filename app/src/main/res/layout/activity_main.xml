@@ -76,4 +76,22 @@
         android:layout_alignTop="@+id/addsps3"
         android:layout_alignStart="@+id/addsps2" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="done"
+        android:id="@+id/done"
+        android:onClick="done"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WIN"
+        android:id="@+id/win"
+        android:onClick="win"
+        android:layout_below="@+id/addsps1"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

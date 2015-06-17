@@ -91,5 +91,21 @@ Score score;
             Toast.makeText(this,"not enough score",Toast.LENGTH_SHORT).show();}
 
     }
+    public void win(View view){
+        if(score.score>=1000000000) {
+            score.subtractscore(1000000000);
+            Toast.makeText(this,"u won, for now",Toast.LENGTH_LONG).show();
+            finish();
+            System.exit(0);
+        }else{
+            Toast.makeText(this,"if you need to ask the price, you can't afford it",Toast.LENGTH_SHORT).show();}
+
+    }
+    public void done(View view){
+        Toast.makeText(this,"thanks for playing my game",Toast.LENGTH_SHORT).show();
+        finish();
+        System.exit(0);
+
+    }
 
 }

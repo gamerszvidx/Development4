@@ -42,7 +42,7 @@ public class Score extends Activity {
                     }
                 });
             }
-        }, 1000, 1000);
+        },1000,1000);
     }
 
 
