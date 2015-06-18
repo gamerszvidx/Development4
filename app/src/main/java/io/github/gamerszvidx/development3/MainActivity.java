@@ -12,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.TimerTask;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,8 +25,9 @@ import java.util.logging.Handler;
 
 public class MainActivity extends Activity  {
 
-
-Score score;
+    ObjectOutputStream out;
+    ObjectInputStream in;
+    Score score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,15 @@ Score score;
         setContentView(R.layout.activity_main);
         score = new Score(this,this);
 
+    }
+
+
+    public void save(View view) throws IOException {
+        score.save();
+    }
+
+    public void load(View view) throws IOException, ClassNotFoundException {
+        score.load();
     }
 
     @Override

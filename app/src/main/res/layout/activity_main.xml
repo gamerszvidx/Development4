@@ -94,4 +94,24 @@
         android:layout_below="@+id/addsps1"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:id="@+id/save"
+        android:onClick="save"
+        android:layout_below="@+id/done"
+        android:layout_toEndOf="@+id/addscoreButton"
+        android:layout_alignStart="@+id/done" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="load"
+        android:id="@+id/load"
+        android:onClick="load"
+        android:layout_below="@+id/save"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/save" />
+
 </RelativeLayout>
