@@ -1,0 +1,104 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context=".Score">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <Button
+            android:id="@+id/addsps17"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 17: -1m Score + 20k sps" />
+
+        <Button
+            android:id="@+id/addsps18"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 18: -1.5m Score + 30k sps" />
+
+        <Button
+            android:id="@+id/addsps19"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 19: -2.5m Score + 50k sps" />
+
+        <Button
+            android:id="@+id/addsps20"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 20: -5m Score + 100k sps" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/addsps21"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 21: -7.5m Score + 150k sps" />
+
+        <Button
+            android:id="@+id/addsps22"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 22: -10m Score + 200k sps" />
+
+        <Button
+            android:id="@+id/addsps23"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 23: -15m Score + 300k sps" />
+
+        <Button
+            android:id="@+id/addsps24"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="worker 24: -20m Score + 400k sps" />
+    </LinearLayout>
+</LinearLayout>

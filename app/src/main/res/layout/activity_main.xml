@@ -11,9 +11,9 @@
         android:id="@+id/addscoreButton"
         android:text="click"
         android:onClick="clicked"
+        android:layout_marginTop="64dp"
         android:layout_below="@+id/sps"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp" />
+        android:layout_centerHorizontal="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,88 +30,45 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Shop"
-        android:id="@+id/textView"
-        android:textSize="30dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:text="Made by Gamerszvidx"
+        android:id="@+id/about"
+        android:onClick="about"
+        android:layout_alignParentBottom="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="worker 1: -100 Score + 5 sps"
-        android:id="@+id/addsps1"
-        android:onClick="addsps1"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/textView"
-        android:layout_toStartOf="@+id/addscoreButton" />
+    <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addscoreButton">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp"
+            android:weightSum="1">
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="201dp"
+                android:padding="5dp"
+                android:layout_weight="0.42">
+                <include android:id="@+id/cell1"
+                    layout="@layout/activity_poor_player_shop"
+                    />
+                <include android:id="@+id/cell2"
+                    layout="@layout/activity_richer_player_shop" />
+                <include android:id="@+id/cell3"
+                    layout="@layout/activity_even_richer_player_shop" />
+                <include android:id="@+id/cell4"
+                    layout="@layout/activity_too_rich_player_shop" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="worker 2: -200 Score + 10 sps"
-        android:id="@+id/addsps2"
-        android:onClick="addsps2"
-        android:layout_above="@+id/addsps3"
-        android:layout_toEndOf="@+id/addscoreButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="worker 3: -300 Score + 15 sps"
-        android:id="@+id/addsps3"
-        android:onClick="addsps3"
-        android:layout_below="@+id/addsps1"
-        android:layout_alignStart="@+id/addsps1"
-        android:layout_marginTop="38dp"
-        android:layout_toStartOf="@+id/addscoreButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="worker 4: -500 Score + 25 sps"
-        android:id="@+id/addsps4"
-        android:onClick="addsps4"
-        android:layout_alignTop="@+id/addsps3"
-        android:layout_alignStart="@+id/addsps2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="done"
-        android:id="@+id/done"
-        android:onClick="done"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WIN"
-        android:id="@+id/win"
-        android:onClick="win"
-        android:layout_below="@+id/addsps1"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"
-        android:id="@+id/save"
-        android:onClick="save"
-        android:layout_below="@+id/done"
-        android:layout_toEndOf="@+id/addscoreButton"
-        android:layout_alignStart="@+id/done" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="load"
-        android:id="@+id/load"
-        android:onClick="load"
-        android:layout_below="@+id/save"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/save" />
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 
 </RelativeLayout>

@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.ContentHandler;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,20 +19,23 @@ import java.util.TimerTask;
 /**
  * Created by gamerszvidx on 17-6-2015.
  */
-public class Score extends Activity {
+public class Score implements Serializable {
     String fileName = "SaveData";
-    int score;
-    int sps = 0;
+    Long score;
+    Long sps;
+    Long k = (long) 1000;
+    Long m = (long) 1000000;
+    Long b = (long) 1000000000;
     TextView scoretext;
     TextView spstext;
     Timer timer = new Timer();
     Context context;
     MainActivity main;
 
-    public Score(final Context context, final MainActivity main){
+    public Score(final Context context, final MainActivity main) {
         this.context = context;
-         scoretext = (TextView) ((Activity)context).findViewById(R.id.Score);
-         spstext = (TextView) ((Activity)context).findViewById(R.id.sps);
+        scoretext = (TextView) ((Activity) context).findViewById(R.id.Score);
+        spstext = (TextView) ((Activity) context).findViewById(R.id.sps);
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -40,7 +44,7 @@ public class Score extends Activity {
                 {
                     public void run() {
 
-                        if (sps <= 999999999) {
+                        if (sps <= Long.MAX_VALUE) {
                             addscore(sps);
                         } else {
                             timer.cancel();
@@ -48,38 +52,80 @@ public class Score extends Activity {
                     }
                 });
             }
-        },1000,1000);
+        }, 1000, 1000);
     }
 
 
+    public void addscore(Long scoretoadd) {
+        score += scoretoadd;
+        if (100 * k <= score && score < m) {
+            scoretext.setText("score: " + score / k + "K");
+        } else if (m <= score && score < 100 * m) {
+            scoretext.setText("score: " + score / k + "K");
+        } else if (100 * m <= score && score < b) {
+            scoretext.setText("score: " + score / m + "M");
+        } else if (b <= score) {
+            scoretext.setText("score: " + score / b + "B");
+        } else if (b <= score && score < 100*b) {
+            scoretext.setText("score: " + score / m + "M");
+        } else if (100 * b <= score) {
+            scoretext.setText("score: " + score / b + "B");
+        }else {
+            scoretext.setText("score: " + score);
+        }
 
-    public void addscore(int scoretoadd){
-        score+=scoretoadd;
-        scoretext.setText("score: " + score);
 
     }
 
-    public void addsps(int spstoadd){
-        sps+=spstoadd;
-        spstext.setText("score per second: " + sps);
+    public Long getScore() {
+        return score;
     }
 
-    public void subtractscore(int scoretoremove){
-        score-=scoretoremove;
-        scoretext.setText("score: " + score);
+    public void setScore(Long score) {
+        this.score = score;
     }
-    public void save() throws IOException {
-        FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-        ObjectOutputStream os = new ObjectOutputStream(fos);
-        os.writeObject(this);
-        os.close();
-        fos.close();
+
+    public Long getSps() {
+        return sps;
     }
-    public void load() throws IOException, ClassNotFoundException{
-        FileInputStream fis = context.openFileInput(fileName);
-        ObjectInputStream is = new ObjectInputStream(fis);
-        Score Score = (Score) is.readObject();
-        is.close();
-        fis.close();
+
+    public void setSps(Long sps) {
+        this.sps = sps;
+    }
+
+    public void addsps(Long spstoadd) {
+        sps += spstoadd;
+        if (100 * k <= sps && sps < m) {
+            spstext.setText("score per second: " + sps / k + "K");
+        } else if (m <= sps && sps < 100 * m) {
+            spstext.setText("score per second: " + sps / k + "K");
+        } else if (100 * m <= sps && sps < b) {
+            spstext.setText("score per second: " + sps / m + "M");
+        } else if (b <= sps && sps < 100*b) {
+            spstext.setText("score per second: " + sps / m + "M");
+        } else if (100 * b <= sps) {
+            spstext.setText("score per second: " + sps / b + "B");
+        }else {
+            spstext.setText("score per second: " + sps);
+        }
+    }
+
+    public void subtractscore(Long scoretoremove) {
+        score -= scoretoremove;
+        if (100 * k <= score && score < m) {
+            scoretext.setText("score: " + score / k + "K");
+        } else if (m <= score && score < 100 * m) {
+            scoretext.setText("score: " + score / k + "K");
+        } else if (100 * m <= score && score < b) {
+            scoretext.setText("score: " + score / m + "M");
+        } else if (b <= score) {
+            scoretext.setText("score: " + score / b + "B");
+        } else if (b <= score && score < 100*b) {
+            scoretext.setText("score: " + score / m + "M");
+        } else if (100 * b <= score) {
+            scoretext.setText("score: " + score / b + "B");
+        }else {
+            scoretext.setText("score: " + score);
+        }
     }
 }
